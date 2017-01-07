@@ -150,4 +150,3 @@ VOLUME /etc/php5/${PHP52} VOLUME /etc/php5/${PHP53} VOLUME /etc/php5/${PHP54} VO
 CMD ["apachectl", "-D", "FOREGROUND"]
 
 # End Dockerfile
-
