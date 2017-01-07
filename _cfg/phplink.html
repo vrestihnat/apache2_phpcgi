@@ -1,0 +1,17 @@
+<html><body><h1>PHP Version {PHP}</h1>
+<p>This is the standard Page!</p>
+
+Using the link connects to the php page on port {PHP_PORT} !
+<br>
+<br>
+<code>
+<script language="JavaScript">
+// document.write('<a href="' + '//' + window.location.hostname + ':81' + window.location.pathname + '" >Link to same page on port 81:</a> ' );
+document.write('<a href="' + '//' + window.location.hostname + ':{PHP_PORT}' + '" > PHP fcgi {PHP}  (Port:{PHP_PORT}) </a>  <p>' );
+
+</script>
+</code>
+<p>
+
+
+</body></html>
