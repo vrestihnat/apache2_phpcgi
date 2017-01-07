@@ -144,7 +144,7 @@ VOLUME /var/www  /opt/phpfarm  /etc/apache2 /var/log/apache
 VOLUME /etc/php5/${PHP52} VOLUME /etc/php5/${PHP53} VOLUME /etc/php5/${PHP54} VOLUME /etc/php5/${PHP56} 
 
 # add healthcehck for apache (docker 1.12)
-HEALTHCHECK --interval=5m --timeout=3s  CMD curl -f http://localhost/ || exit 1
+# HEALTHCHECK --interval=5m --timeout=3s  CMD curl -f http://localhost/ || exit 1
 
 # start apache
 CMD ["apachectl", "-D", "FOREGROUND"]
