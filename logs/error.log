@@ -1,0 +1,8 @@
+[Sat Jan 07 13:44:05 2017] [notice] suEXEC mechanism enabled (wrapper: /usr/lib/apache2/suexec)
+apache2: Could not reliably determine the server's fully qualified domain name, using 172.21.0.2 for ServerName
+[Sat Jan 07 13:44:05 2017] [notice] FastCGI: process manager initialized (pid 11)
+[Sat Jan 07 13:44:05 2017] [warn] FastCGI: server "/var/www/cgi-bin/php-cgi-5.6.29" started (pid 12)
+[Sat Jan 07 13:44:05 2017] [warn] FastCGI: server "/var/www/cgi-bin/php-cgi-5.4.45" started (pid 14)
+[Sat Jan 07 13:44:05 2017] [warn] FastCGI: server "/var/www/cgi-bin/php-cgi-5.3.29" started (pid 15)
+[Sat Jan 07 13:44:05 2017] [warn] FastCGI: server "/var/www/cgi-bin/php-cgi-5.2.17" started (pid 16)
+[Sat Jan 07 13:44:06 2017] [notice] Apache/2.2.22 (Debian) mod_fastcgi/mod_fastcgi-SNAP-0910052141 mod_fcgid/2.3.6 PHP/5.4.45-0+deb7u6 configured -- resuming normal operations
