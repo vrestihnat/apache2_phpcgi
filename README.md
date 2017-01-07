@@ -15,4 +15,8 @@ This image is debian wheezy based with the apache2.2 webserver and several php f
   
 The apache web server is available at the container host at ports 80, 82, 83, 84 and 86.
 
-
+### Commands:
+##### Running containers:
+    docker ps
+##### Attach shell to container with:
+    docker exec -it ContainerID /bin/bash
