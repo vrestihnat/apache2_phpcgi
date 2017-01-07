@@ -10,7 +10,7 @@ services:
      - "82:82"
      - "83:83"
      - "84:84"
-     - "85:86"
+     - "86:86"
 #    environment:
 #     - JOOMLA_DB_HOST=mysql:3306
 #     - JOOMLA_DB_PASSWORD=12345678
