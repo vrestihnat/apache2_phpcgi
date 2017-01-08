@@ -1,0 +1,18 @@
+version: '2'
+services:
+  apache2:
+    image: apache2_phpcgi
+    ports:
+      - "81:80"
+      - "82:82"
+      - "83:83"
+      - "84:84"
+      - "86:86"
+    volumes:
+      - ./logs:/var/log/apache2
+      - ./www:/var/www
+      - ./apache2:/etc/apache2
+      - ./php5.2.17:/etc/php5/cgi/5.2.17
+      - ./php5.3.29:/etc/php5/cgi/5.3.29
+      - ./php5.4.45:/etc/php5/cgi/5.4.45
+      - ./php5.6.29:/etc/php5/cgi/5.6.29
