@@ -23,12 +23,12 @@ https://sourceforge.net/projects/phpfarm/
 * /var/log/apache2
 
 ### Run without host volumes:
-    docker run: -d --name ap2-fcgi -p 81:80 -p 82:82 -p 83:83 -p 84:84 pipp37/apache2_phpcgi 
+    docker run -d --name ap2-fcgi -p 81:80 -p 82:82 -p 83:83 -p 84:84 pipp37/apache2_phpcgi 
   
 The apache web server is then available at the container host at ports 81, 82, 83, 84 and 86.
 
 ### Run with all volumes:
-    docker run: -d --name ap2-fcgi -p 81:80 -p 82:82 -p 83:83 -p 84:84 \
+    docker run -d --name ap2-fcgi -p 81:80 -p 82:82 -p 83:83 -p 84:84 \
     -v /var/apache2-phpcgi/www/:/var/www/   \
     -v /var/apache2-phpcgi/apache2/:/etc/apache2/  \
     -v /var/apache2-phpcgi/logs/:/var/log/apache2/ \
