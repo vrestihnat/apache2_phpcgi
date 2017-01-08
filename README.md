@@ -2,7 +2,7 @@
 
 ## !!! at work - not finished yet !!!!
 
-This docker image is debian wheezy based with the apache2.2 webserver and several php fastcgi version.
+This docker image is debian wheezy based with the apache2.2 webserver and several php fastcgi versions.
 
 PHP fastcgi versions are compiled from phpfarm.
 https://sourceforge.net/projects/phpfarm/
@@ -27,7 +27,7 @@ https://sourceforge.net/projects/phpfarm/
 ### Run without host volumes:
     docker run: -d --name ap2-fcgi -p 81:80 -p 82:82 -p 83:83 -p 84:84 pipp37/apache2_phpcgi 
   
-The apache web server is available at the container host at ports 81, 82, 83, 84 and 86.
+The apache web server is then available at the container host at ports 81, 82, 83, 84 and 86.
 
 ### Run with all volumes:
     docker run: -d --name ap2-fcgi -p 81:80 -p 82:82 -p 83:83 -p 84:84 \
