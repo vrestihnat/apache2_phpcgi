@@ -1,65 +1,18 @@
 version: '2'
 services:
   apache2:
-    #image: joomla:3.6.2-apache-php7
     image: apache2_phpcgi
-#    links:
-#     - mysqlmambo
     ports:
-     - "81:80"
-     - "82:82"
-     - "83:83"
-     - "84:84"
-     - "86:86"
+      - "81:80"
+      - "82:82"
+      - "83:83"
+      - "84:84"
+      - "86:86"
     volumes:
-#     - ./code:/var/www/html
-#     - ./php:/etc/php5/5.2.17
-#     - ./phpfarm:/opt/phpfarm
-#     - ./apache:/etc/apache2
       - ./logs:/var/log/apache2
-      - ./phpfarm:/opt/phpfarm
       - ./www:/var/www
       - ./apache2:/etc/apache2
       - ./php5.2.17:/etc/php5/cgi/5.2.17
       - ./php5.3.29:/etc/php5/cgi/5.3.29
       - ./php5.4.45:/etc/php5/cgi/5.4.45
       - ./php5.6.29:/etc/php5/cgi/5.6.29
-
-
-
-#    volumes:
-#    - "apache-data:/var/log/apache2"
-#    - "apache-data:/var/www"
-
-#volumes:
-#    apache-data:
-
-
-
-#    environment:
-#     - JOOMLA_DB_HOST=mysql:3306
-#     - JOOMLA_DB_PASSWORD=12345678
-#    volumes:
-#     - ./code:/var/www/html
-#     - ./php:/etc/php5/5.2.17
-#     - ./phpfarm:/opt/phpfarm
-#     - ./apache:/etc/apache2
-#     - ./logs:/var/log/apache2
-
-#  mysqlmambo:
-#    image: mysql:5.5.54
-#    environment:
-#     - MYSQL_ROOT_PASSWORD=12345678
-#     - MYSQL_DATABASE=mambo
-#    volumes:
-#     - ./database:/var/lib/mysql
-
-#  phpmyadmin:
-#    image: phpmyadmin/phpmyadmin:4.6.4-1
-#    links:
-#     - mysqlmambo
-#    ports:
-#     - "83:80"
-#    environment:
-#     - PMA_HOST=mysqlmambo
-

@@ -49,7 +49,7 @@ case $1 in
 			# -C /destdirroot  -k, --keep-old-files
 			# -k do not overwrite existsing files
 			echo extract $TGZ to $2 
-			tar -xzf $TGZ -C / 
+			tar -xzkf $TGZ -C / 
 			touch $TGZ.firstrun
 		fi
 		;;

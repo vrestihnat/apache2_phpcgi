@@ -138,15 +138,10 @@ RUN /_cfg/apachecfg.sh ${PHP54} 84
 # config apache for php 5.6.29 on port 86
 RUN /_cfg/apachecfg.sh ${PHP56} 86
 
-##### todo - workmarker
-ADD volumedata.sh /_cfg/ 
-RUN chmod +x /_cfg/volumedata.sh
 # create tgz files from volumes
 RUN    /_cfg/volumedata.sh create /var/www  \
     && /_cfg/volumedata.sh create /var/log/apache2  \
     && /_cfg/volumedata.sh create /etc/apache2  \
-    && /_cfg/volumedata.sh create /opt/phpfarm  \
-    && /_cfg/volumedata.sh create /var/log/apache2  \
     && /_cfg/volumedata.sh create /etc/php5/cgi/${PHP52} \
     && /_cfg/volumedata.sh create /etc/php5/cgi/${PHP53} \
     && /_cfg/volumedata.sh create /etc/php5/cgi/${PHP54} \
@@ -155,20 +150,16 @@ RUN    /_cfg/volumedata.sh create /var/www  \
 ADD myinit.sh /
 RUN chmod +x /myinit.sh
 
-#########
-
 EXPOSE 80 82 83 84 86
 
-VOLUME /var/www  /opt/phpfarm  /etc/apache2 /var/log/apache2
-VOLUME   /etc/php5/cgi/${PHP53} /etc/php5/cgi/${PHP54} /etc/php5/cgi/${PHP56} 
+VOLUME /var/www  /etc/apache2  /var/log/apache2
+VOLUME /etc/php5/cgi/${PHP53} /etc/php5/cgi/${PHP54} /etc/php5/cgi/${PHP56} 
 
 # add healthcehck for apache (docker 1.12)
 # HEALTHCHECK --interval=5m --timeout=3s  CMD curl -f http://localhost/ || exit 1
 
-# start apache
-#CMD ["apachectl", "-D", "FOREGROUND"]
-
+# start initscript and apache/
+# CMD ["apachectl", "-D", "FOREGROUND"]
 CMD ["/myinit.sh"]
 
 # End Dockerfile
-
