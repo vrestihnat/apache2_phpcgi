@@ -11,15 +11,40 @@ services:
      - "83:83"
      - "84:84"
      - "86:86"
-#    environment:
-#     - JOOMLA_DB_HOST=mysql:3306
-#     - JOOMLA_DB_PASSWORD=12345678
     volumes:
 #     - ./code:/var/www/html
 #     - ./php:/etc/php5/5.2.17
 #     - ./phpfarm:/opt/phpfarm
 #     - ./apache:/etc/apache2
-     - ./logs:/var/log/apache2
+      - ./logs:/var/log/apache2
+      - ./phpfarm:/opt/phpfarm
+      - ./www:/var/www
+      - ./apache2:/etc/apache2
+      - ./php5.2.17:/etc/php5/cgi/5.2.17
+      - ./php5.3.29:/etc/php5/cgi/5.3.29
+      - ./php5.4.45:/etc/php5/cgi/5.4.45
+      - ./php5.6.29:/etc/php5/cgi/5.6.29
+
+
+
+#    volumes:
+#    - "apache-data:/var/log/apache2"
+#    - "apache-data:/var/www"
+
+#volumes:
+#    apache-data:
+
+
+
+#    environment:
+#     - JOOMLA_DB_HOST=mysql:3306
+#     - JOOMLA_DB_PASSWORD=12345678
+#    volumes:
+#     - ./code:/var/www/html
+#     - ./php:/etc/php5/5.2.17
+#     - ./phpfarm:/opt/phpfarm
+#     - ./apache:/etc/apache2
+#     - ./logs:/var/log/apache2
 
 #  mysqlmambo:
 #    image: mysql:5.5.54

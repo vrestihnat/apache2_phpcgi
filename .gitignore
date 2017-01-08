@@ -1,1 +1,6 @@
-logs/**
+logs/*
+apache2/*
+phpfarm/*
+www/*
+php5.?.??/*
+
