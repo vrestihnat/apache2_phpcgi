@@ -140,8 +140,8 @@ RUN /_cfg/apachecfg.sh ${PHP56} 86
 
 EXPOSE 80 82 83 84 86
 
-VOLUME /var/www  /opt/phpfarm  /etc/apache2 /var/log/apache
-VOLUME /etc/php5/${PHP52} VOLUME /etc/php5/${PHP53} VOLUME /etc/php5/${PHP54} VOLUME /etc/php5/${PHP56} 
+VOLUME /var/www  /opt/phpfarm  /etc/apache2 /var/log/apache2
+VOLUME /etc/php5/cgi/${PHP52} VOLUME /etc/php5/cgi/${PHP53} VOLUME /etc/php5/cgi/${PHP54} VOLUME /etc/php5/cgi/${PHP56} 
 
 # add healthcehck for apache (docker 1.12)
 # HEALTHCHECK --interval=5m --timeout=3s  CMD curl -f http://localhost/ || exit 1
