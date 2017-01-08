@@ -70,4 +70,3 @@ Create a file `docker-compose.yml`
 Start with: `docker-compose up &`
 
 Stop with: `docker compose down`
-
