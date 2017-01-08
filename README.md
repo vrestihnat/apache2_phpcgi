@@ -51,7 +51,7 @@ Create a file `docker-compose.yml`
     version: '2'
     services:
       apache2:
-        image: apache2_phpcgi
+        image: pipp37/apache2_phpcgi
         ports:
             - "81:80"
             - "82:82"
