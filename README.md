@@ -1,3 +1,6 @@
+[![](https://images.microbadger.com/badges/image/pipp37/apache2_phpcgi.svg)](https://microbadger.com/images/pipp37/apache2_phpcgi "Get your own image badge on microbadger.com")
+[![](https://images.microbadger.com/badges/version/pipp37/apache2_phpcgi.svg)](https://microbadger.com/images/pipp37/apache2_phpcgi "Get your own version badge on microbadger.com")
+
 ## Docker apache2_phpcgi image
 
 This docker image is debian wheezy based with the apache2.2 webserver and several php fastcgi versions.
