@@ -1,6 +1,24 @@
-version: '2'
+version: '3.1'
 services:
+  mysql:
+    image: mysql:8.0
+    container_name: apache2phpfcgi-mysql
+    working_dir: /var/www
+    volumes:
+      - /c/docker/sources/unix:/var/www
+    environment:
+      - MYSQL_ROOT_PASSWORD=toor
+      - MYSQL_DATABASE=devel
+      - MYSQL_USER=jouda
+      - MYSQL_PASSWORD=jouda
+    networks:
+      dmz:
+        ipv4_address: 172.16.17.253
+    ports:
+      - "13306:3306"
   apache2:
+    container_name: apache2phpfcgi
+    pid: "host"
     image: pipp37/apache2_phpcgi
     ports:
       - "81:80"
@@ -9,10 +27,20 @@ services:
       - "84:84"
       - "86:86"
     volumes:
-      - ./logs:/var/log/apache2
-      - ./www:/var/www
-      - ./apache2:/etc/apache2
-      - ./php5.2.17:/etc/php5/cgi/5.2.17
-      - ./php5.3.29:/etc/php5/cgi/5.3.29
-      - ./php5.4.45:/etc/php5/cgi/5.4.45
-      - ./php5.6.29:/etc/php5/cgi/5.6.29
+      - /c/docker/logs/apache:/var/log/apache2
+      - /c/docker/sources/unix:/var/www
+      - /c/docker/apache:/etc/apache2
+      - /c/docker/php/php5.2.17:/etc/php5/cgi/5.2.17
+      - /c/docker/php/php5.3.29:/etc/php5/cgi/5.3.29
+      - /c/docker/php/php5.4.45:/etc/php5/cgi/5.4.45
+      - /c/docker/php/php5.6.29:/etc/php5/cgi/5.6.29
+    networks:
+      dmz:
+        ipv4_address: 172.16.17.2
+
+networks:
+  dmz:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 172.16.17.0/24
