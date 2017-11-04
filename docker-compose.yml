@@ -1,7 +1,21 @@
 version: '3.1'
 services:
+  syslog-ng:
+    image: bobrik/syslog-ng
+    container_name: apache2phpfcgi-syslog-ng
+    working_dir: /var/www
+    volumes:
+      - /c/docker/sources/unix:/var/www
+      - /c/docker/logs/syslog-ng:/var/log/syslog-ng
+    networks:
+      dmz:
+        ipv4_address: 172.16.17.254
+    ports:
+      - "514:514/udp"
   mysql:
     image: mysql:8.0
+    depends_on:
+      - syslog-ng
     container_name: apache2phpfcgi-mysql
     working_dir: /var/www
     volumes:
@@ -16,8 +30,16 @@ services:
         ipv4_address: 172.16.17.253
     ports:
       - "13306:3306"
+    logging:
+      driver: syslog
+      options:
+        syslog-address: "tcp://172.16.17.254:514"
+        tag: "{{.Name}}-{{.ID}}"
   apache2:
+    build: .
     container_name: apache2phpfcgi
+    depends_on:
+      - syslog-ng
     pid: "host"
     image: pipp37/apache2_phpcgi
     ports:
@@ -37,10 +59,11 @@ services:
     networks:
       dmz:
         ipv4_address: 172.16.17.2
-#    logging:
-#      driver: syslog
-#      options:
-#        syslog-address: "tcp+tls://192.168.71.1:514"
+    logging:
+      driver: syslog
+      options:
+        syslog-address: "tcp://172.16.17.254:514"
+        tag: "{{.Name}}-{{.ID}}"
 networks:
   dmz:
     driver: bridge
