@@ -37,10 +37,14 @@ services:
     networks:
       dmz:
         ipv4_address: 172.16.17.2
-
+#    logging:
+#      driver: syslog
+#      options:
+#        syslog-address: "tcp+tls://192.168.71.1:514"
 networks:
   dmz:
     driver: bridge
     ipam:
       config:
         - subnet: 172.16.17.0/24
+
