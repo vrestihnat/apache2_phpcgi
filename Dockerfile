@@ -28,7 +28,7 @@ RUN    apt-get install -y --force-yes   libxml2 libxml2-dev libssl-dev libicu48 
 RUN    apt-get install -y --force-yes   apache2 php5 php-pear php5-mcrypt php5-mysql ttf-dejavu-core lynx \
    &&  apt-get install -y --force-yes   libgd2-xpm  mysql-client php5-gd libjpeg8 libjpeg8-dev  \
    &&  apt-get install -y --force-yes   apache2-mpm-worker apache2-suexec libapache2-mod-fastcgi libapache2-mod-fcgid php5-cgi \
-   &&  apt-get install -y --force-yes   libapache2-mod-php5   \
+   &&  apt-get install -y --force-yes   libapache2-mod-php5 netcat rsyslog \
    &&  apt-get clean
  
 # do not install php5-fpm
