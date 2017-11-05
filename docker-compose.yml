@@ -35,6 +35,28 @@ services:
       options:
         syslog-address: "tcp://172.16.17.254:514"
         tag: "{{.Name}}-{{.ID}}"
+  postgres:
+    image: postgres:9.6-alpine
+    depends_on:
+      - syslog-ng
+    container_name: apache2phpfcgi-pgsql
+    working_dir: /var/www
+    volumes:
+      - /c/docker/sources/unix:/var/www
+    environment:
+      - POSTGRES_USER=root
+      - POSTGRES_PASSWORD=toor
+      - POSTGRES_DB=develop
+    networks:
+      dmz:
+        ipv4_address: 172.16.17.252
+    ports:
+      - "15432:5432"
+    logging:
+      driver: syslog
+      options:
+        syslog-address: "tcp://172.16.17.254:514"
+        tag: "{{.Name}}-{{.ID}}"
   apache2:
     build: .
     container_name: apache2phpfcgi
