@@ -158,6 +158,10 @@ VOLUME /etc/php5/cgi/${PHP53} /etc/php5/cgi/${PHP54} /etc/php5/cgi/${PHP56}
 # add healthcehck for apache (docker 1.12)
 # HEALTHCHECK --interval=5m --timeout=3s  CMD curl -f http://localhost/ || exit 1
 
+#install php composer
+COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
+
+
 # start initscript and apache/
 # CMD ["apachectl", "-D", "FOREGROUND"]
 CMD ["/myinit.sh"]
